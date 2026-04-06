@@ -501,7 +501,7 @@ function init() {
                 currentStep = 1;
             }
         } else if (currentStep === 1) {
-            window.location.href = '../calculator.html';
+            window.location.href = '../index.html';
         }
         updateView();
     });
