@@ -1,0 +1,304 @@
+/* ===== ANSI CALCULATOR SHARED STYLES ===== */
+
+.submodule-content {
+    padding: 2rem 4rem;
+    max-width: 1200px;
+    margin: 80px auto 40px;
+    /* Adjust for navbar */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.breadcrumb-link {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.breadcrumb-link:hover {
+    opacity: 1;
+    color: var(--second-color, #00A3FF);
+}
+
+.breadcrumb-current {
+    background: linear-gradient(90deg, #00AEFF 25%, #FFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.breadcrumbs i {
+    font-size: 1.1rem;
+    opacity: 0.5;
+}
+
+/* Header */
+
+.submodule-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: #00A3FF;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 163, 255, 0.3);
+}
+
+.submodule-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* Card Styling */
+.ansi-card {
+    background: #1b1b1b;
+    border: 1px solid rgba(179, 179, 179, 0.4);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.ansi-grid-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+/* Input Fields */
+.ansi-input-field {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 0.5rem;
+}
+
+.ansi-input-field label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.ansi-input-field .required {
+    color: #ff4d4f;
+    margin-left: 4px;
+}
+
+.ansi-input-field input[type="text"],
+.ansi-input-field input[type="number"] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.ansi-input-field input[type="text"]:focus,
+.ansi-input-field input[type="number"]:focus {
+    border-bottom-color: #00A3FF;
+}
+
+.ansi-input-field input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.ansi-input-hint {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+}
+
+/* Badge Results (Wide calculation fields) */
+.ansi-badge-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.ansi-badge-full {
+    width: 100%;
+    background: rgba(0, 50, 80, 0.6);
+    border: 1px solid #00A3FF;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.ansi-badge-box {
+    flex: 1;
+    background: transparent;
+    border: 1px solid rgba(179, 179, 179, 0.4);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ansi-badge-box label {
+    font-size: 0.75rem;
+    background: rgba(0, 163, 255, 0.1);
+    color: #00A3FF;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    align-self: flex-start;
+    font-weight: 600;
+}
+
+.ansi-badge-box.green-label label {
+    background: rgba(0, 200, 83, 0.1);
+    color: #00C853;
+}
+
+.ansi-badge-box-val {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Back Button */
+.ansi-back-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.ansi-back-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ansi-back-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Landing Page Grid */
+.ansi-landing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.ansi-landing-card {
+    background: #1b1b1b;
+    border: 1px solid rgba(179, 179, 179, 0.4);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.ansi-landing-card:hover {
+    transform: translateY(-5px);
+    border-color: #00A3FF;
+    box-shadow: 0 10px 30px rgba(0, 163, 255, 0.1);
+}
+
+.ansi-landing-card .card-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 163, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.ansi-landing-card:hover .card-icon {
+    background: #00A3FF;
+}
+
+.ansi-landing-card:hover .card-icon svg path {
+    stroke: white;
+}
+
+.ansi-landing-card h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.ansi-landing-card p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+    .ansi-landing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ansi-grid-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .ansi-landing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ansi-badge-row {
+        flex-direction: column;
+    }
+}

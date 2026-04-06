@@ -1,0 +1,415 @@
+/*======= IEC Short Circuit Shared Styles =======*/
+.submodule-content {
+    padding: 40px;
+    color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 60px;
+}
+
+.breadcrumb-link {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.breadcrumb-link:hover {
+    opacity: 1;
+    color: var(--second-color);
+}
+
+.breadcrumb-current {
+    background: linear-gradient(90deg, #00AEFF 25%, #FFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.breadcrumbs i {
+    font-size: 1.1rem;
+    opacity: 0.5;
+}
+
+/* Header */
+.submodule-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.submodule-header .icon-box {
+    background: linear-gradient(135deg, #05C9F7, #025BE0);
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 20px rgba(0, 163, 224, 0.3);
+}
+
+.submodule-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* ===== Top Input Card ===== */
+.iec-top-card {
+    background: #1b1b1b;
+    border: 1px solid rgba(179, 179, 179, 1);
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.iec-top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 40px;
+}
+
+/* ===== Input Fields ===== */
+.iec-input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.iec-input-field label {
+    display: block;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
+
+.iec-input-field label .required {
+    color: #ff4d4d;
+    margin-left: 4px;
+}
+
+.iec-input-field input,
+.iec-input-field .iec-select-trigger {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid rgba(179, 179, 179, 1);
+    color: #fff;
+    padding: 12px 0;
+    outline: none;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.iec-input-field input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.iec-input-field input:focus {
+    border-bottom-color: var(--second-color);
+}
+
+.iec-input-field input.auto-calculated {
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+}
+
+.iec-input-hint {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 6px;
+}
+
+/* Hide number spinners */
+.iec-input-field input::-webkit-outer-spin-button,
+.iec-input-field input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.iec-input-field input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* ===== Custom Dropdown ===== */
+.iec-custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.iec-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+}
+
+.iec-select-trigger .arrow {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.iec-select-trigger .arrow svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.iec-custom-select.open .iec-select-trigger .arrow {
+    transform: rotate(180deg);
+}
+
+.iec-custom-select.open .iec-select-trigger {
+    border-bottom-color: var(--second-color);
+}
+
+.iec-select-options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    background: #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.iec-custom-select.open .iec-select-options {
+    display: block;
+}
+
+.iec-select-option {
+    padding: 14px 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.iec-select-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.iec-select-option.selected {
+    background: rgba(0, 195, 255, 0.15);
+}
+
+.iec-select-option .check-icon {
+    display: none;
+}
+
+.iec-select-option.selected .check-icon {
+    display: flex;
+    align-items: center;
+}
+
+.iec-select-option .check-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ===== Bottom Row: Hasil Simulasi + Datasheet ===== */
+.iec-bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.iec-section-card {
+    background: #1b1b1b;
+    border: 1px solid rgba(179, 179, 179, 1);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.iec-section-card h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.iec-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 30px;
+}
+
+/* For fields that span full width in section cards (e.g., single-column items) */
+.iec-input-field.full-width {
+    grid-column: 1 / -1;
+}
+
+/* ===== Back Button ===== */
+.iec-back-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.iec-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 32px;
+    background: transparent;
+    color: #B3B3B3;
+    border: 1px solid rgba(179, 179, 179, 1);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.iec-back-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+    color: #fff;
+    border-color: var(--second-color);
+}
+
+/* ===== IEC Landing Page ===== */
+.iec-landing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.iec-landing-card {
+    background: #1b1b1b;
+    border: 1px solid rgba(179, 179, 179, 1);
+    border-radius: 12px;
+    padding: 35px 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.iec-landing-card:hover {
+    border-color: var(--second-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 163, 224, 0.2);
+}
+
+.iec-landing-card .card-icon {
+    background: linear-gradient(135deg, #05C9F7, #025BE0);
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 8px 16px rgba(0, 163, 224, 0.25);
+}
+
+.iec-landing-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.iec-landing-card p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .submodule-content {
+        padding: 20px;
+        margin-top: 80px;
+    }
+
+    .submodule-title {
+        font-size: 1.5rem;
+    }
+
+    .breadcrumbs {
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 0.85rem;
+        margin-bottom: 40px;
+    }
+
+    .iec-top-card {
+        padding: 25px;
+    }
+
+    .iec-top-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .iec-bottom-row {
+        grid-template-columns: 1fr;
+    }
+
+    .iec-section-card {
+        padding: 25px;
+    }
+
+    .iec-section-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .iec-landing-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .submodule-title {
+        font-size: 1.3rem;
+    }
+
+    .iec-input-field input {
+        font-size: 1rem;
+    }
+}

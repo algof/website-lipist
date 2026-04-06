@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="x-icon" href="../image/logo_lipist.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IEC LVCB - LIPIST ETAP</title>
+    <link rel="stylesheet" href="../css/calculator.css" />
+    <link rel="stylesheet" href="iec-shared.css" />
+    <script src="../js/calculator.js" defer></script>
+    <script src="iec-lvcb.js" defer></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <header class="header">
+        <div class="header-left">
+            <img src="../image/image_index1.png" alt="Lipist Logo" class="logo-img">
+            <span class="logo-text">LIPIST.</span>
+        </div>
+        <div class="header-right">
+            <button class="menu-toggle" id="menu-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 12H3M16 6H3M16 18H3M21 12H15" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="submodule-content">
+        <!-- BREADCRUMBS -->
+        <nav class="breadcrumbs">
+            <a href="../calculator.html" class="breadcrumb-link">Home</a>
+            <i class="bx bx-chevron-right"></i>
+            <a href="../calculator.html#open-shortCircuit" class="breadcrumb-link">Short Circuit Analysis</a>
+            <i class="bx bx-chevron-right"></i>
+            <a href="iec.html" class="breadcrumb-link">IEC</a>
+            <i class="bx bx-chevron-right"></i>
+            <span class="breadcrumb-current">LVCB</span>
+        </nav>
+
+        <!-- HEADER SECTION -->
+        <div class="submodule-header">
+            <div class="icon-box">
+                <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2.00341 13.0026C1.81418 13.0032 1.62864 12.9502 1.46836 12.8496C1.30809 12.749 1.17964 12.605 1.09796 12.4343C1.01628 12.2636 0.984703 12.0732 1.00691 11.8853C1.02912 11.6973 1.10419 11.5196 1.22341 11.3726L11.1234 1.1726C11.1977 1.08689 11.2989 1.02896 11.4104 1.00834C11.5219 0.987714 11.6371 1.00562 11.7371 1.05911C11.8371 1.1126 11.916 1.1985 11.9607 1.30271C12.0055 1.40692 12.0135 1.52325 11.9834 1.6326L10.0634 7.6526C10.0068 7.80413 9.98778 7.96712 10.008 8.12761C10.0282 8.2881 10.0871 8.44129 10.1795 8.57403C10.2719 8.70678 10.3952 8.81512 10.5387 8.88976C10.6822 8.96441 10.8417 9.00313 11.0034 9.0026H18.0034C18.1926 9.00196 18.3782 9.05502 18.5385 9.15563C18.6987 9.25623 18.8272 9.40025 18.9089 9.57095C18.9905 9.74165 19.0221 9.93202 18.9999 10.1199C18.9777 10.3079 18.9026 10.4856 18.7834 10.6326L8.88341 20.8326C8.80915 20.9183 8.70795 20.9762 8.59643 20.9969C8.48491 21.0175 8.36969 20.9996 8.26968 20.9461C8.16967 20.8926 8.09083 20.8067 8.04607 20.7025C8.00132 20.5983 7.99333 20.482 8.02341 20.3726L9.94341 14.3526C10 14.2011 10.019 14.0381 9.99882 13.8776C9.9786 13.7171 9.91975 13.5639 9.82732 13.4312C9.73489 13.2984 9.61164 13.1901 9.46813 13.1154C9.32463 13.0408 9.16516 13.0021 9.00341 13.0026H2.00341Z"
+                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </div>
+            <h1 class="submodule-title">Perhitungan Spesifikasi LVCB (Standar IEC)</h1>
+        </div>
+
+        <!-- TOP INPUT CARD -->
+        <div class="iec-top-card">
+            <div class="iec-top-grid">
+                <!-- Substation -->
+                <div class="iec-input-field">
+                    <label>Substation</label>
+                    <input type="text" id="substation" placeholder="Substation">
+                    <span class="iec-input-hint">Nama atau kode substation</span>
+                </div>
+
+                <!-- kV -->
+                <div class="iec-input-field">
+                    <label>kV<span class="required">*</span></label>
+                    <input type="number" step="any" id="kv" placeholder="0">
+                </div>
+
+                <!-- CB ID -->
+                <div class="iec-input-field">
+                    <label>CB ID<span class="required">*</span></label>
+                    <input type="text" id="cb-id" placeholder="CB ID">
+                    <span class="iec-input-hint">Kode identifikasi circuit breaker.</span>
+                </div>
+
+                <!-- Load Desc -->
+                <div class="iec-input-field">
+                    <label>Load Desc<span class="required">*</span></label>
+                    <input type="number" step="any" id="load-desc" placeholder="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM ROW: Hasil Simulasi + Datasheet -->
+        <div class="iec-bottom-row">
+            <!-- Hasil Simulasi -->
+            <div class="iec-section-card">
+                <h2>Hasil Simulasi</h2>
+                <div class="iec-section-grid">
+                    <!-- Load (kVA) -->
+                    <div class="iec-input-field">
+                        <label>Load (kVA)<span class="required">*</span></label>
+                        <input type="number" step="any" id="sim-load" placeholder="0">
+                    </div>
+
+                    <!-- Load FLA (A) -->
+                    <div class="iec-input-field">
+                        <label>Load FLA (A)<span class="required">*</span></label>
+                        <input type="number" step="any" id="sim-load-fla" placeholder="0">
+                    </div>
+
+                    <!-- CB FLA (A) - auto -->
+                    <div class="iec-input-field">
+                        <label>CB FLA (A)<span class="required">*</span></label>
+                        <input type="text" id="sim-cb-fla" placeholder="-" readonly class="auto-calculated">
+                    </div>
+
+                    <!-- Ultimate Breaking (kA) -->
+                    <div class="iec-input-field">
+                        <label>Ultimate Breaking (kA)<span class="required">*</span></label>
+                        <input type="number" step="any" id="sim-ultimate-breaking" placeholder="0">
+                    </div>
+
+                    <!-- Service Breaking (kA) -->
+                    <div class="iec-input-field">
+                        <label>Service Breaking (kA)<span class="required">*</span></label>
+                        <input type="number" step="any" id="sim-service-breaking" placeholder="0">
+                    </div>
+
+                    <!-- Making Peak (kA) - auto -->
+                    <div class="iec-input-field">
+                        <label>Making Peak (kA)</label>
+                        <input type="text" id="sim-making-peak" placeholder="-" readonly class="auto-calculated">
+                    </div>
+
+                    <!-- Rated kV CB -->
+                    <div class="iec-input-field">
+                        <label>Rated kV CB</label>
+                        <input type="number" step="any" id="sim-rated-kv" placeholder="0">
+                    </div>
+
+                    <!-- ST. Withstand (kA) -->
+                    <div class="iec-input-field">
+                        <label>ST. Withstand (kA)</label>
+                        <input type="number" step="any" id="sim-st-withstand" placeholder="0">
+                    </div>
+
+                    <!-- Tkr -->
+                    <div class="iec-input-field">
+                        <label>Tkr</label>
+                        <input type="number" step="any" id="sim-tkr" placeholder="0">
+                    </div>
+
+                    <!-- Min. Delay -->
+                    <div class="iec-input-field">
+                        <label>Min. Delay</label>
+                        <input type="number" step="any" id="sim-min-delay" placeholder="0">
+                    </div>
+
+                    <!-- T. Close -->
+                    <div class="iec-input-field full-width">
+                        <label>T. Close</label>
+                        <input type="number" step="any" id="sim-tclose" placeholder="0">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Datasheet -->
+            <div class="iec-section-card">
+                <h2>Datasheet</h2>
+                <div class="iec-section-grid">
+                    <!-- Load (kVA) -->
+                    <div class="iec-input-field">
+                        <label>Load (kVA)<span class="required">*</span></label>
+                        <input type="number" step="any" id="ds-load" placeholder="0">
+                    </div>
+
+                    <!-- Load FLA (A) -->
+                    <div class="iec-input-field">
+                        <label>Load FLA (A)<span class="required">*</span></label>
+                        <input type="number" step="any" id="ds-load-fla" placeholder="0">
+                    </div>
+
+                    <!-- CB FLA (A) -->
+                    <div class="iec-input-field">
+                        <label>CB FLA (A)<span class="required">*</span></label>
+                        <input type="number" step="any" id="ds-cb-fla" placeholder="0">
+                    </div>
+
+                    <!-- Ultimate Breaking (kA) -->
+                    <div class="iec-input-field">
+                        <label>Ultimate Breaking (kA)<span class="required">*</span></label>
+                        <input type="number" step="any" id="ds-ultimate-breaking" placeholder="0">
+                    </div>
+
+                    <!-- Service Breaking (kA) -->
+                    <div class="iec-input-field">
+                        <label>Service Breaking (kA)<span class="required">*</span></label>
+                        <input type="number" step="any" id="ds-service-breaking" placeholder="0">
+                    </div>
+
+                    <!-- Making Peak (kA) -->
+                    <div class="iec-input-field">
+                        <label>Making Peak (kA)</label>
+                        <input type="number" step="any" id="ds-making-peak" placeholder="0">
+                    </div>
+
+                    <!-- Rated kV CB -->
+                    <div class="iec-input-field">
+                        <label>Rated kV CB<span class="required">*</span></label>
+                        <input type="number" step="any" id="ds-rated-kv" placeholder="0">
+                    </div>
+
+                    <!-- ST. Withstand (kA) -->
+                    <div class="iec-input-field">
+                        <label>ST. Withstand (kA)<span class="required">*</span></label>
+                        <input type="number" step="any" id="ds-st-withstand" placeholder="0">
+                    </div>
+
+                    <!-- Tkr -->
+                    <div class="iec-input-field">
+                        <label>Tkr<span class="required">*</span></label>
+                        <input type="number" step="any" id="ds-tkr" placeholder="0">
+                    </div>
+
+                    <!-- Min. Delay -->
+                    <div class="iec-input-field">
+                        <label>Min. Delay<span class="required">*</span></label>
+                        <input type="number" step="any" id="ds-min-delay" placeholder="0">
+                    </div>
+
+                    <!-- T. Close -->
+                    <div class="iec-input-field full-width">
+                        <label>T. Close<span class="required">*</span></label>
+                        <input type="number" step="any" id="ds-tclose" placeholder="0">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="iec-back-btn-container">
+            <a href="iec.html" class="iec-back-btn">Kembali Ke IEC</a>
+        </div>
+    </main>
+
+    <!-- MENU OVERLAY -->
+    <div class="menu-overlay" id="menu-overlay">
+        <div class="overlay-container">
+            <div class="overlay-header">
+                <div class="header-left">
+                    <img src="../image/image_index1.png" alt="Lipist Logo" class="logo-img">
+                    <span class="logo-text">LIPIST.</span>
+                </div>
+                <div class="overlay-close" id="overlay-close">
+                    <i class="bx bx-x"></i>
+                </div>
+            </div>
+
+            <div class="overlay-body">
+                <div class="overlay-modules-grid">
+                    <div class="overlay-module-card" data-module="transient">
+                        <div class="module-card-header">
+                            <span>Transient Stability Analysis</span>
+                            <i class="bx bx-chevron-down"></i>
+                        </div>
+                        <div class="module-dropdown">
+                            <a href="../transient/beban-3-langkah.html" class="submodule-link">Pelepasan Beban 3 Langkah</a>
+                            <a href="../transient/beban-6-langkah.html" class="submodule-link">Pelepasan Beban 6 Langkah</a>
+                        </div>
+                    </div>
+                    <div class="overlay-module-card active" data-module="shortCircuit">
+                        <div class="module-card-header">
+                            <span>Short Circuit Analysis</span>
+                            <i class="bx bx-chevron-down"></i>
+                        </div>
+                        <div class="module-dropdown">
+                            <span class="submodule-link" style="color: rgba(255,255,255,0.3); font-size:0.8rem; pointer-events:none;">ANSI</span>
+                            <a href="ansi-busbar.html" class="submodule-link" style="padding-left:10px;">Busbar</a>
+                            <a href="ansi-hvcb.html" class="submodule-link" style="padding-left:10px;">HVCB</a>
+                            <a href="ansi-lvcb.html" class="submodule-link" style="padding-left:10px;">LVCB</a>
+                            <span class="submodule-link" style="color: rgba(255,255,255,0.3); font-size:0.8rem; pointer-events:none;">IEC</span>
+                            <a href="iec-busbar.html" class="submodule-link" style="padding-left:10px;">Busbar</a>
+                            <a href="iec-hvcb.html" class="submodule-link" style="padding-left:10px;">HVCB</a>
+                            <a href="iec-lvcb.html" class="submodule-link active" style="padding-left:10px;">LVCB</a>
+                        </div>
+                    </div>
+                    <div class="overlay-module-card" data-module="protection">
+                        <div class="module-card-header">
+                            <span>Protection & Coordination</span>
+                            <i class="bx bx-chevron-down"></i>
+                        </div>
+                        <div class="module-dropdown">
+                            <a href="../protection/ocr-phase.html" class="submodule-link">Setting Relay OCR Phase</a>
+                            <a href="../protection/ocr-ground.html" class="submodule-link">Setting Relay OCR Ground</a>
+                            <a href="../protection/reset-trafo.html" class="submodule-link">Reset Trafo</a>
+                        </div>
+                    </div>
+                    <div class="overlay-module-card" data-module="loadFlow">
+                        <div class="module-card-header">
+                            <span>Load Flow</span>
+                            <i class="bx bx-chevron-down"></i>
+                        </div>
+                        <div class="module-dropdown">
+                            <a href="../load-flow/bank.html" class="submodule-link">Perhitungan Capacitor Bank</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overlay-branding-panel">
+                    <div class="branding-content">
+                        <h2 class="branding-subtitle">LIPIST ETAP</h2>
+                        <h1 class="branding-title">CALCULATOR</h1>
+                    </div>
+                    <p class="copyright-text">Copyright © 2026 LIPIST Laboratory All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

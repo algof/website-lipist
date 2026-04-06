@@ -1,0 +1,238 @@
+/*======= Perhitungan Capacitor Bank Styles =======*/
+.submodule-content {
+    padding: 40px;
+    color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 60px;
+}
+
+.breadcrumb-link {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.breadcrumb-link:hover {
+    opacity: 1;
+    color: var(--second-color);
+}
+
+.breadcrumb-current {
+    background: linear-gradient(90deg, #00AEFF 25%, #FFF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.breadcrumbs i {
+    font-size: 1.1rem;
+    opacity: 0.5;
+}
+
+/* Header */
+.submodule-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.submodule-header .icon-box {
+    background: linear-gradient(135deg, #05C9F7, #025BE0);
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 20px rgba(0, 163, 224, 0.3);
+}
+
+.submodule-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Calculator Card */
+.bank-calc-card {
+    background: #1b1b1b;
+    border: 1px solid rgba(179, 179, 179, 1);
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.bank-calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 40px;
+}
+
+/* Input Fields */
+.bank-input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.bank-input-field label {
+    display: block;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
+
+.bank-input-field label .required {
+    color: #ff4d4d;
+    margin-left: 4px;
+}
+
+.bank-input-field input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid rgba(179, 179, 179, 1);
+    color: #fff;
+    padding: 12px 0;
+    outline: none;
+    font-size: 1.1rem;
+    transition: 0.3s;
+}
+
+.bank-input-field input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.bank-input-field input:focus {
+    border-bottom-color: var(--second-color);
+}
+
+/* Hide number spinners */
+.bank-input-field input::-webkit-outer-spin-button,
+.bank-input-field input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.bank-input-field input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Result Box */
+.bank-result-box {
+    border: 1.5px solid var(--second-color);
+    border-radius: 12px;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.bank-result-box .result-label {
+    display: inline-block;
+    background: rgba(0, 174, 255, 0.15);
+    color: var(--second-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 174, 255, 0.3);
+    margin-bottom: 12px;
+    width: fit-content;
+}
+
+.bank-result-box .result-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Back Button */
+.bank-back-btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.bank-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 32px;
+    background: transparent;
+    color: #B3B3B3;
+    border: 1px solid rgba(179, 179, 179, 1);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bank-back-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+    color: #fff;
+    border-color: var(--second-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .submodule-content {
+        padding: 20px;
+        margin-top: 80px;
+    }
+
+    .submodule-title {
+        font-size: 1.5rem;
+    }
+
+    .breadcrumbs {
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 0.85rem;
+        margin-bottom: 40px;
+    }
+
+    .bank-calc-card {
+        padding: 25px;
+    }
+
+    .bank-calc-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .bank-result-box .result-value {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .submodule-title {
+        font-size: 1.3rem;
+    }
+
+    .bank-input-field input {
+        font-size: 1rem;
+    }
+}

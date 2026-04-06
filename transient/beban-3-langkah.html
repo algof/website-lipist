@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="x-icon" href="../image/logo_lipist.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelepasan Beban 3 Langkah - LIPIST</title>
+    <link rel="stylesheet" href="../css/calculator.css" />
+    <link rel="stylesheet" href="beban-3-langkah.css" />
+    <script src="../js/calculator.js" defer></script>
+    <script src="beban-3-langkah.js" defer></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <header class="header">
+        <div class="header-left">
+            <img src="../image/image_index1.png" alt="Lipist Logo" class="logo-img">
+            <span class="logo-text">LIPIST.</span>
+        </div>
+        <div class="header-right">
+            <button class="menu-toggle" id="menu-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 12H3M16 6H3M16 18H3M21 12H15" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="submodule-content">
+        <!-- BREADCRUMBS -->
+        <nav class="breadcrumbs">
+            <a href="../calculator.html" class="breadcrumb-link">Home</a>
+            <i class="bx bx-chevron-right"></i>
+            <a href="../calculator.html#open-transient" class="breadcrumb-link">Transient Stability Analysis</a>
+            <i class="bx bx-chevron-right"></i>
+            <span class="breadcrumb-current">Pelepasan Beban 3 Langkah</span>
+        </nav>
+
+        <div id="step-1-view">
+            <!-- HEADER SECTION -->
+            <div class="submodule-header">
+                <div class="icon-box">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 9V13C5 13.5304 5.21071 14.0391 5.58579 14.4142C5.96086 14.7893 6.46957 15 7 15H11M3 1H7C8.10457 1 9 1.89543 9 3V7C9 8.10457 8.10457 9 7 9H3C1.89543 9 1 8.10457 1 7V3C1 1.89543 1.89543 1 3 1ZM13 11H17C18.1046 11 19 11.8954 19 13V17C19 18.1046 18.1046 19 17 19H13C11.8954 19 11 18.1046 11 17V13C11 11.8954 11.8954 11 13 11Z"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h1 class="submodule-title">Pelepasan Beban 3 Langkah</h1>
+                <p class="submodule-subtitle">STANDAR OPERASI FREKUENSI BERDASARKAN IEEE Std. C37.102-2006</p>
+            </div>
+
+            <!-- FREQUENCY TABLE -->
+            <div class="table-container">
+                <table class="freq-table">
+                    <thead>
+                        <tr>
+                            <th>Remarks</th>
+                            <th>Frequency Range Sistem 50 Hz</th>
+                            <th>Frequency Range Sistem 60 Hz</th>
+                            <th>Time (Up to)</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Prohibited Operation</td>
+                            <td>> 51.5</td>
+                            <td>> 61.8</td>
+                            <td>Prohibited</td>
+                            <td rowspan="2" class="merged-cell prohibited">Prohibited Operation</td>
+                        </tr>
+                        <tr>
+                            <td>Restrictive Operation</td>
+                            <td>50.42 - 51.5</td>
+                            <td>60.5 - 61.8</td>
+                            <td>10 min</td>
+                        </tr>
+                        <tr>
+                            <td>Continuous Operation</td>
+                            <td>49.58 - 50.42</td>
+                            <td>59.49 - 60.5</td>
+                            <td>Continuous</td>
+                            <td class="merged-cell normal">Normal</td>
+                        </tr>
+                        <tr>
+                            <td>Restrictive Operation</td>
+                            <td>48.75 - 49.58</td>
+                            <td>58.5 - 59.49</td>
+                            <td>50 min</td>
+                            <td rowspan="4" class="merged-cell restrictive">Restrictive Operation</td>
+                        </tr>
+                        <tr>
+                            <td>Restrictive Operation</td>
+                            <td>48.17 - 48.75</td>
+                            <td>57.8 - 58.5</td>
+                            <td>10 min</td>
+                        </tr>
+                        <tr>
+                            <td>Restrictive Operation</td>
+                            <td>47.67 - 48.17</td>
+                            <td>57.2 - 57.8</td>
+                            <td>3 min</td>
+                        </tr>
+                        <tr>
+                            <td>Prohibited Operation</td>
+                            <td>
+                                < 47.67</td>
+                            <td>
+                                < 57.2</td>
+                            <td>Prohibited</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CALCULATION SECTION -->
+            <div class="calc-grid">
+                <!-- Left Card: Load MW -->
+                <div class="calc-card">
+                    <div class="input-group">
+                        <label for="load-mw">Load MW<span class="required">*</span></label>
+                        <input type="number" step="any" id="load-mw" placeholder="0">
+                    </div>
+                </div>
+
+                <!-- Right Card: Converter Group -->
+                <div class="calc-card">
+                    <div class="converter-row">
+                        <div class="input-field">
+                            <label>%F to Hz<span class="required">*</span></label>
+                            <div class="dual-input">
+                                <input type="number" step="any" id="f-percent-input" placeholder="0">
+                                <input type="text" id="hz-output" placeholder="0" readonly>
+                            </div>
+                            <div class="f-status-helper" id="f-status-helper"></div>
+                        </div>
+                        <div class="input-field">
+                            <label>Hz to %F<span class="required">*</span></label>
+                            <div class="dual-input">
+                                <input type="number" step="any" id="hz-input" placeholder="0">
+                                <input type="text" id="f-percent-output" placeholder="0" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-field f-base-field">
+                        <label>F base<span class="required">*</span></label>
+                        <div class="custom-dropdown" id="f-base-dropdown">
+                            <div class="dropdown-trigger">
+                                <span class="selected-value">50</span>
+                                <i class="bx bx-chevron-down"></i>
+                            </div>
+                            <div class="dropdown-options">
+                                <div class="option selected" data-value="50">
+                                    <span>50</span>
+                                    <i class="bx bx-check"></i>
+                                </div>
+                                <div class="option" data-value="60">
+                                    <span>60</span>
+                                    <i class="bx bx-check"></i>
+                                </div>
+                            </div>
+                            <select id="f-base-select" style="display: none;">
+                                <option value="50" selected>50</option>
+                                <option value="60">60</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="step-2-view">
+            <div class="step-2-layout">
+                <!-- Sidebar: Data from Step 1 -->
+                <aside class="sidebar-inputs" id="sidebar-inputs">
+                    <!-- Cards will be cloned here via JS or written directly -->
+                    <div class="calc-card sidebar-card">
+                        <div class="input-group">
+                            <label>Load MW</label>
+                            <input type="number" step="any" id="sidebar-load-mw" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="calc-card sidebar-card">
+                        <div class="converter-row">
+                            <div class="input-field">
+                                <label>%F to Hz</label>
+                                <div class="dual-input">
+                                    <input type="number" step="any" id="sidebar-f-percent-input" placeholder="0">
+                                    <input type="text" id="sidebar-hz-output" placeholder="0" readonly>
+                                </div>
+                                <div class="f-status-helper" id="sidebar-f-status-helper"></div>
+                            </div>
+                        </div>
+                        <div class="converter-row" style="margin-top: 20px;">
+                            <div class="input-field">
+                                <label>Hz to %F</label>
+                                <div class="dual-input">
+                                    <input type="number" step="any" id="sidebar-hz-input" placeholder="0">
+                                    <input type="text" id="sidebar-f-percent-output" placeholder="0" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-field f-base-field" style="margin-top: 20px;">
+                            <label>F base</label>
+                            <div class="custom-dropdown" id="sidebar-f-base-dropdown">
+                                <div class="dropdown-trigger">
+                                    <span class="selected-value">50</span>
+                                    <i class="bx bx-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-options">
+                                    <div class="option selected" data-value="50">
+                                        <span>50</span>
+                                        <i class="bx bx-check"></i>
+                                    </div>
+                                    <div class="option" data-value="60">
+                                        <span>60</span>
+                                        <i class="bx bx-check"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content: LS Phases -->
+                <section class="ls-main-content">
+                    <div class="ls-phases-indicator">
+                        <div class="phase-tab active" data-phase="1">LS1</div>
+                        <div class="phase-connector"></div>
+                        <div class="phase-tab" data-phase="2">LS2</div>
+                        <div class="phase-connector"></div>
+                        <div class="phase-tab" data-phase="3">LS3</div>
+                    </div>
+
+                    <div class="ls-phase-form">
+                        <div class="info-boxes-row">
+                            <div class="info-box-card">
+                                <label>Frequency Trip</label>
+                                <div class="info-box-value" id="freq-trip-val">49.41</div>
+                            </div>
+                            <div class="info-box-card">
+                                <label>%Freq</label>
+                                <div class="info-box-value" id="percent-freq-val">98.93</div>
+                            </div>
+                        </div>
+
+                        <div class="calc-row">
+                            <div class="input-field">
+                                <label>Waktu Trip Point (ms)<span class="required">*</span></label>
+                                <input type="number" step="any" id="trip-point" placeholder="0">
+                            </div>
+                            <div class="input-field">
+                                <label>Delay CB (ms)<span class="required">*</span></label>
+                                <input type="number" step="any" id="delay-cb" placeholder="0">
+                            </div>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Time Delay (ms)<span class="required">*</span></label>
+                            <input type="number" step="any" id="time-delay" placeholder="0">
+                        </div>
+
+                        <div class="result-badge-container">
+                            <div class="result-badge">Waktu Total: <span id="waktu-total">0</span> ms</div>
+                        </div>
+
+                        <h2 class="step-section-title" id="phase-title">LS1 (10%)</h2>
+
+                        <div class="summary-stats">
+                            <div class="input-field">
+                                <label>Daya Aktual Sistem (MW)<span class="required">*</span></label>
+                                <input type="text" id="daya-aktual" placeholder="0" readonly>
+                            </div>
+                            <div class="input-field">
+                                <label>Daya Minimal LS (MW)<span class="required">*</span></label>
+                                <input type="text" id="daya-minimal" placeholder="0" readonly>
+                            </div>
+                            <div class="input-field">
+                                <label>Daya LS Aktual (MW)<span class="required">*</span></label>
+                                <input type="text" id="daya-ls-aktual" placeholder="0" readonly>
+                            </div>
+                            <div class="input-field">
+                                <label>Daya Setelah LS (MW)<span class="required">*</span></label>
+                                <input type="text" id="daya-setelah" placeholder="0" readonly>
+                            </div>
+                        </div>
+
+                        <h2 class="step-section-title"><span id="tahap-prefix">TAHAP</span> <span
+                                id="tahap-label">LS1</span></h2>
+
+                        <div class="table-container">
+                            <table class="freq-table ls-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID Beban</th>
+                                        <th>Daya (KW)</th>
+                                        <th>Total (MW)</th>
+                                        <th>Circuit Breaker</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ls-table-body">
+                                    <!-- Rows will be dynamic or repeated -->
+                                    <tr>
+                                        <td><input type="text" class="ls-id" placeholder="ID"></td>
+                                        <td><input type="number" step="any" class="ls-kw" placeholder="0"></td>
+                                        <td rowspan="7"
+                                            style="text-align: center; font-size: 1.5rem; font-weight: 700; border-left: 1px solid rgba(255,255,255,0.1);"
+                                            id="ls-total-mw">0</td>
+                                        <td><input type="text" class="ls-cb" placeholder="CB"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="ls-id" placeholder="ID"></td>
+                                        <td><input type="number" step="any" class="ls-kw" placeholder="0"></td>
+                                        <td><input type="text" class="ls-cb" placeholder="CB"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="ls-id" placeholder="ID"></td>
+                                        <td><input type="number" step="any" class="ls-kw" placeholder="0"></td>
+                                        <td><input type="text" class="ls-cb" placeholder="CB"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="ls-id" placeholder="ID"></td>
+                                        <td><input type="number" step="any" class="ls-kw" placeholder="0"></td>
+                                        <td><input type="text" class="ls-cb" placeholder="CB"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="ls-id" placeholder="ID"></td>
+                                        <td><input type="number" step="any" class="ls-kw" placeholder="0"></td>
+                                        <td><input type="text" class="ls-cb" placeholder="CB"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="ls-id" placeholder="ID"></td>
+                                        <td><input type="number" step="any" class="ls-kw" placeholder="0"></td>
+                                        <td><input type="text" class="ls-cb" placeholder="CB"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="ls-id" placeholder="ID"></td>
+                                        <td><input type="number" step="any" class="ls-kw" placeholder="0"></td>
+                                        <td><input type="text" class="ls-cb" placeholder="CB"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div id="summary-view" style="display: none;">
+            <div class="submodule-header">
+                <div class="icon-box">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 9V13C5 13.5304 5.21071 14.0391 5.58579 14.4142C5.96086 14.7893 6.46957 15 7 15H11M3 1H7C8.10457 1 9 1.89543 9 3V7C9 8.10457 8.10457 9 7 9H3C1.89543 9 1 8.10457 1 7V3C1 1.89543 1.89543 1 3 1ZM13 11H17C18.1046 11 19 11.8954 19 13V17C19 18.1046 18.1046 19 17 19H13C11.8954 19 11 18.1046 11 17V13C11 11.8954 11.8954 11 13 11Z"
+                            stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h1 class="submodule-title">Pelepasan Beban 3 Langkah<br>(RECAP)</h1>
+            </div>
+
+            <!-- Step 1 Data Recap -->
+            <div class="calc-grid" id="recap-step1">
+                <div class="calc-card">
+                    <div class="input-group">
+                        <label>Load MW<span class="required">*</span></label>
+                        <input type="text" id="recap-load-mw" placeholder="0" readonly>
+                    </div>
+                </div>
+                <div class="calc-card">
+                    <div class="converter-row">
+                        <div class="input-field">
+                            <label>%F to Hz<span class="required">*</span></label>
+                            <div class="dual-input">
+                                <input type="text" id="recap-f-percent" placeholder="0" readonly>
+                                <input type="text" id="recap-hz-out" placeholder="0" readonly>
+                            </div>
+                            <div class="f-status-helper" id="recap-f-status-helper"></div>
+                        </div>
+                        <div class="input-field">
+                            <label>Hz to %F<span class="required">*</span></label>
+                            <div class="dual-input">
+                                <input type="text" id="recap-hz-in" placeholder="0" readonly>
+                                <input type="text" id="recap-fp-out" placeholder="0" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-field f-base-field">
+                        <label>F base<span class="required">*</span></label>
+                        <div class="custom-dropdown recap-dropdown" id="recap-f-base-dropdown">
+                            <div class="dropdown-trigger">
+                                <span class="selected-value" id="recap-f-base">50</span>
+                                <i class="bx bx-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Phase Sections (rendered by JS) -->
+            <div id="recap-phases-container"></div>
+
+            <!-- Kembali Ke Home Button -->
+            <div class="recap-home-btn-container">
+                <a href="../calculator.html" class="recap-home-btn">
+                    <i class="bx bx-home"></i> Kembali Ke Home
+                </a>
+            </div>
+        </div>
+
+        <!-- FOOTER NAVIGATION -->
+        <div class="submodule-footer">
+            <button class="nav-btn prev" id="prev-btn">Sebelumnya</button>
+            <button class="nav-btn next" id="next-btn" disabled>
+                Selanjutnya <i class="bx bx-chevron-right"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- MENU OVERLAY -->
+    <div class="menu-overlay" id="menu-overlay">
+        <div class="overlay-container">
+            <div class="overlay-header">
+                <div class="header-left">
+                    <img src="../image/image_index1.png" alt="Lipist Logo" class="logo-img">
+                    <span class="logo-text">LIPIST.</span>
+                </div>
+                <div class="overlay-close" id="overlay-close">
+                    <i class="bx bx-x"></i>
+                </div>
+            </div>
+
+            <div class="overlay-body">
+                <div class="overlay-modules-grid">
+                    <div class="overlay-module-card active" data-module="transient">
+                        <div class="module-card-header">
+                            <span>Transient Stability Analysis</span>
+                            <i class="bx bx-chevron-down"></i>
+                        </div>
+                        <div class="module-dropdown">
+                            <a href="beban-3-langkah.html" class="submodule-link active">Pelepasan Beban 3 Langkah</a>
+                            <a href="beban-6-langkah.html" class="submodule-link">Pelepasan Beban 6 Langkah</a>
+                        </div>
+                    </div>
+                    <div class="overlay-module-card" data-module="shortCircuit">
+                        <div class="module-card-header">
+                            <span>Short Circuit Analysis</span>
+                            <i class="bx bx-chevron-down"></i>
+                        </div>
+                        <div class="module-dropdown">
+                            <span class="submodule-link" style="color: rgba(255,255,255,0.3); font-size:0.8rem; pointer-events:none;">ANSI</span>
+                            <a href="../short-circuit/ansi-busbar.html" class="submodule-link" style="padding-left:10px;">Busbar</a>
+                            <a href="../short-circuit/ansi-hvcb.html" class="submodule-link" style="padding-left:10px;">HVCB</a>
+                            <a href="../short-circuit/ansi-lvcb.html" class="submodule-link" style="padding-left:10px;">LVCB</a>
+                            <span class="submodule-link" style="color: rgba(255,255,255,0.3); font-size:0.8rem; pointer-events:none;">IEC</span>
+                            <a href="../short-circuit/iec-busbar.html" class="submodule-link" style="padding-left:10px;">Busbar</a>
+                            <a href="../short-circuit/iec-hvcb.html" class="submodule-link" style="padding-left:10px;">HVCB</a>
+                            <a href="../short-circuit/iec-lvcb.html" class="submodule-link" style="padding-left:10px;">LVCB</a>
+                        </div>
+                    </div>
+                    <div class="overlay-module-card" data-module="protection">
+                        <div class="module-card-header">
+                            <span>Protection & Coordination</span>
+                            <i class="bx bx-chevron-down"></i>
+                        </div>
+                        <div class="module-dropdown">
+                            <a href="../protection/ocr-phase.html" class="submodule-link">Setting Relay OCR Phase</a>
+
+                            <a href="../protection/ocr-ground.html" class="submodule-link">Setting Relay OCR Ground</a>
+                            <a href="../protection/reset-trafo.html" class="submodule-link">Reset Trafo</a>
+                        </div>
+                    </div>
+                    <div class="overlay-module-card" data-module="loadFlow">
+                        <div class="module-card-header">
+                            <span>Load Flow</span>
+                            <i class="bx bx-chevron-down"></i>
+                        </div>
+                        <div class="module-dropdown">
+                            <a href="../load-flow/bank.html" class="submodule-link">Bank</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overlay-branding-panel">
+                    <div class="branding-content">
+                        <h2 class="branding-subtitle">LIPIST ETAP</h2>
+                        <h1 class="branding-title">CALCULATOR</h1>
+                    </div>
+                    <p class="copyright-text">Copyright © 2026 LIPIST Laboratory All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
