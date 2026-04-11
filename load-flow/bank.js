@@ -13,7 +13,7 @@ function calculateQKompensasi() {
     let result = 0;
 
     // Only calculate if all values are valid and cos values are within [-1, 1]
-    if (P > 0 && Math.abs(qLama) <= 1 && Math.abs(qTarget) <= 1) {
+    if (P > 0 && Math.abs(qLama) <= 100 && Math.abs(qTarget) <= 100) {
         const tanLama = Math.tan(Math.acos(qLama));
         const tanTarget = Math.tan(Math.acos(qTarget));
         result = P * tanLama - P * tanTarget;
