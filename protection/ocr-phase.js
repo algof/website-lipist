@@ -1,24 +1,26 @@
 // ===== OCR Phase Module =====
 // State management for multi-page relay calculation
 
-const curveOptions = [
-    "IEC Standard Inverse Time",
-    "IEC Very Inverse Time",
-    "IEC Long Time Inverse",
-    "IEC Extremely Inverse Time",
-    "IEC Ultra Inverse",
-    "IEEE Very Inverse",
-    "IEEE Extremely Inverse",
-    "IEC Curve A",
-    "IEC Curve B",
-    "IEC Curve C",
-    "IEC Short Inverse",
-    "IEC Curve A",
-    "IEEE Moderately Inverse",
-    "IEC Curve B",
-    "IEC Curve C",
-    "IEC Short Inverse"
+const curveData = [
+    { name: "IEC Standard Inverse Time", k: 0.14, alpha: 0.02, beta: 2.97 },
+    { name: "IEC Very Inverse Time", k: 13.5, alpha: 1, beta: 1.5 },
+    { name: "IEC Long Time Inverse", k: 120, alpha: 1, beta: 13.33 },
+    { name: "IEC Extremely Inverse Time", k: 80, alpha: 2, beta: 0.808 },
+    { name: "IEC Ultra Inverse", k: 315.2, alpha: 2.5, beta: 1 },
+    { name: "IEEE Very Inverse", k: 3.922, alpha: 2, beta: 0.0982 },
+    { name: "IEEE Extremely Inverse", k: 5.64, alpha: 2, beta: 0.02434 },
+    { name: "IEC Curve A", k: 0.14, alpha: 0.02, beta: 1 },
+    { name: "IEC Curve B", k: 13.5, alpha: 1, beta: 1 },
+    { name: "IEC Curve C", k: 80, alpha: 2, beta: 1 },
+    { name: "IEC Short Inverse", k: 0.05, alpha: 0.04, beta: 1 },
+    { name: "IEC Curve A", k: 0.14, alpha: 0.02, beta: 1 },
+    { name: "IEEE Moderately Inverse", k: 0.0103, alpha: 0.02, beta: 0.0228 },
+    { name: "IEC Curve B", k: 13.5, alpha: 1, beta: 1 },
+    { name: "IEC Curve C", k: 80, alpha: 2, beta: 1 },
+    { name: "IEC Short Inverse", k: 0.05, alpha: 0.04, beta: 1 }
 ];
+
+const curveOptions = curveData.map(c => c.name);
 
 function createBlankPage() {
     return {
@@ -33,13 +35,11 @@ function createBlankPage() {
         // Instantaneous
         instIset: "",
         // Time Dial
+        tipeKurvaIndex: 0,
         tipeKurva: curveOptions[0],
         waktuOperasi: "",
         tdsTerpilih: "",
-        timeDelay: "",
-        k: "",
-        alpha: "",
-        beta: ""
+        timeDelay: ""
     };
 }
 
@@ -124,9 +124,16 @@ function calculate() {
     tdIset.textContent = ocIsetVal.toFixed(2);
 
     const waktu = parseFloat(tdWaktuOperasi.value) || 0;
-    const k = parseFloat(tdK.value) || 0;
-    const alpha = parseFloat(tdAlpha.value) || 0;
-    const beta = parseFloat(tdBeta.value) || 0;
+    const curveIdx = pages[currentPageIndex].tipeKurvaIndex;
+    const curve = curveData[curveIdx];
+    const k = curve.k;
+    const alpha = curve.alpha;
+    const beta = curve.beta;
+
+    // Update k/α/β display
+    tdK.textContent = k;
+    tdAlpha.textContent = alpha;
+    tdBeta.textContent = beta;
 
     let timeDial = 0;
     if (k !== 0 && iscMax !== 0 && ocIsetVal !== 0) {
@@ -153,10 +160,7 @@ function saveCurrentPage() {
     page.waktuOperasi = tdWaktuOperasi.value;
     page.tdsTerpilih = tdTdsTerpilih.value;
     page.timeDelay = tdTimeDelay.value;
-    page.k = tdK.value;
-    page.alpha = tdAlpha.value;
-    page.beta = tdBeta.value;
-    // tipeKurva saved by dropdown handler
+    // tipeKurva and tipeKurvaIndex saved by dropdown handler
 }
 
 function loadPage(index) {
@@ -172,13 +176,10 @@ function loadPage(index) {
     tdWaktuOperasi.value = page.waktuOperasi;
     tdTdsTerpilih.value = page.tdsTerpilih;
     tdTimeDelay.value = page.timeDelay;
-    tdK.value = page.k;
-    tdAlpha.value = page.alpha;
-    tdBeta.value = page.beta;
     selectedCurveText.textContent = page.tipeKurva;
-    // Update dropdown selection
-    dropdownOptions.querySelectorAll(".dropdown-option").forEach(opt => {
-        opt.classList.toggle("selected", opt.dataset.value === page.tipeKurva);
+    // Update dropdown selection by index
+    dropdownOptions.querySelectorAll(".dropdown-option").forEach((opt, idx) => {
+        opt.classList.toggle("selected", idx === page.tipeKurvaIndex);
     });
     calculate();
 }
@@ -316,9 +317,11 @@ function renderRecap() {
     const ocIsetVal = parseFloat(page.ocIset) || 0;
     const instIsetVal = parseFloat(page.instIset) || 0;
     const waktu = parseFloat(page.waktuOperasi) || 0;
-    const k = parseFloat(page.k) || 0;
-    const alpha = parseFloat(page.alpha) || 0;
-    const beta = parseFloat(page.beta) || 0;
+    const curveIdx = page.tipeKurvaIndex || 0;
+    const curve = curveData[curveIdx];
+    const k = curve.k;
+    const alpha = curve.alpha;
+    const beta = curve.beta;
 
     let timeDial = 0;
     if (k !== 0 && iscMax !== 0 && ocIsetVal !== 0) {
@@ -468,21 +471,21 @@ function renderRecap() {
                     <input type="text" value="${page.timeDelay}" readonly>
                 </div>
             </div>
-            <div class="td-grid-2">
+            <div class="td-grid-3">
                 <div class="result-box">
                     <span class="box-label badge-blue">k</span>
-                    <div class="box-value">${page.k || "0"}</div>
+                    <div class="box-value">${k}</div>
                 </div>
                 <div class="result-box">
                     <span class="box-label badge-blue">α</span>
-                    <div class="box-value">${page.alpha || "0"}</div>
+                    <div class="box-value">${alpha}</div>
                 </div>
-            </div>
-            <div class="td-grid-2">
                 <div class="result-box">
                     <span class="box-label badge-blue">β</span>
-                    <div class="box-value">${page.beta || "0"}</div>
+                    <div class="box-value">${beta}</div>
                 </div>
+            </div>
+            <div class="td-grid-1">
                 <div class="result-box">
                     <span class="box-label badge-blue">Time Dial (D/TDS/M/TD)</span>
                     <div class="box-value">${timeDial.toFixed(4)}</div>
@@ -501,17 +504,20 @@ function setupDropdown() {
 
     // Generate options
     dropdownOptions.innerHTML = "";
-    curveOptions.forEach((option, idx) => {
+    curveData.forEach((curve, idx) => {
         const div = document.createElement("div");
         div.className = "dropdown-option" + (idx === 0 ? " selected" : "");
-        div.dataset.value = option;
-        div.innerHTML = `<span>${option}</span><i class="bx bx-check"></i>`;
+        div.dataset.value = curve.name;
+        div.dataset.index = idx;
+        div.innerHTML = `<span>${curve.name}</span><i class="bx bx-check"></i>`;
         div.addEventListener("click", () => {
             dropdownOptions.querySelectorAll(".dropdown-option").forEach(o => o.classList.remove("selected"));
             div.classList.add("selected");
-            selectedCurveText.textContent = option;
-            pages[currentPageIndex].tipeKurva = option;
+            selectedCurveText.textContent = curve.name;
+            pages[currentPageIndex].tipeKurva = curve.name;
+            pages[currentPageIndex].tipeKurvaIndex = idx;
             dropdownContainer.classList.remove("active");
+            calculate();
         });
         dropdownOptions.appendChild(div);
     });
@@ -525,8 +531,7 @@ function setupDropdown() {
 // ===== Input Event Listeners =====
 function setupInputListeners() {
     const numericInputs = [flaInput, primCTInput, sekCTInput, iscMinInput, iscMaxInput,
-        ocIsetInput, instIsetInput, tdWaktuOperasi, tdTdsTerpilih, tdTimeDelay,
-        tdK, tdAlpha, tdBeta];
+        ocIsetInput, instIsetInput, tdWaktuOperasi, tdTdsTerpilih, tdTimeDelay];
 
     numericInputs.forEach(input => {
         input.addEventListener("input", () => {
