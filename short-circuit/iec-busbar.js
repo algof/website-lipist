@@ -45,3 +45,33 @@ if (simFla && simContinous) {
         }
     });
 }
+
+// ===== Auto-calculate: Making Peak (kA) = 2.5 * AC Breaking (kA) [Simulasi] =====
+const simAcBreaking = document.getElementById('sim-ac-breaking');
+const simMakingPeak = document.getElementById('sim-making-peak');
+
+if (simAcBreaking && simMakingPeak) {
+    simAcBreaking.addEventListener('input', () => {
+        const val = parseFloat(simAcBreaking.value);
+        if (!isNaN(val) && val !== 0) {
+            simMakingPeak.value = (2.5 * val).toFixed(4);
+        } else {
+            simMakingPeak.value = '';
+        }
+    });
+}
+
+// ===== Auto-calculate: Making Peak (kA) = 2.5 * AC Breaking (kA) [Datasheet] =====
+const dsAcBreaking = document.getElementById('ds-ac-breaking');
+const dsMakingPeak = document.getElementById('ds-making-peak');
+
+if (dsAcBreaking && dsMakingPeak) {
+    dsAcBreaking.addEventListener('input', () => {
+        const val = parseFloat(dsAcBreaking.value);
+        if (!isNaN(val) && val !== 0) {
+            dsMakingPeak.value = (2.5 * val).toFixed(4);
+        } else {
+            dsMakingPeak.value = '';
+        }
+    });
+}
