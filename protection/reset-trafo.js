@@ -199,7 +199,7 @@ function renderRecap() {
 
         let hasilIscMaxHV = 0;
         if (iscMaxLV !== 0) {
-            hasilIscMaxHV = (lowV * highV) / iscMaxLV;
+            hasilIscMaxHV = (lowV / highV) * iscMaxLV;
         }
         const resetStatus = iscMinHV > hasilIscMaxHV ? "Reset" : "Tidak Reset";
 
