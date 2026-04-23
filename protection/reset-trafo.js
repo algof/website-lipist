@@ -42,10 +42,10 @@ function calculate() {
     const iscMaxLV = parseFloat(iscMaxLVInput.value) || 0;
     const iscMinHV = parseFloat(iscMinHVInput.value) || 0;
 
-    // Hasil ISC Max (HV) = Low Voltage * High Voltage / ISC Max (LV)
+    // Hasil ISC Max (HV) = Low Voltage / High Voltage * ISC Max (LV)
     let hasilIscMaxHV = 0;
     if (iscMaxLV !== 0) {
-        hasilIscMaxHV = (lowV * highV) / iscMaxLV;
+        hasilIscMaxHV = (lowV / highV) * iscMaxLV;
     }
     resultIscMaxHV.textContent = hasilIscMaxHV.toFixed(2);
 
