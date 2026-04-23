@@ -47,7 +47,7 @@ function calculate() {
     if (iscMaxLV !== 0) {
         hasilIscMaxHV = (lowV / highV) * iscMaxLV;
     }
-    resultIscMaxHV.textContent = hasilIscMaxHV.toFixed(2);
+    resultIscMaxHV.textContent = hasilIscMaxHV;
 
     // Reset / Tidak Reset = IF(ISC Min (HV) > Hasil ISC Max (HV), "Reset", "Tidak Reset")
     const resetStatus = iscMinHV > hasilIscMaxHV ? "Reset" : "Tidak Reset";
