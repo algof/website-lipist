@@ -132,20 +132,20 @@
                 <h2>Datasheet</h2>
                 <div class="iec-section-grid">
                     <!-- Load (kVA) -->
-                    <div class="iec-input-field">
+                    <!-- <div class="iec-input-field">
                         <label>Load (kVA)<span class="required">*</span></label>
                         <input type="number" step="any" id="ds-load" placeholder="0">
-                    </div>
+                    </div> -->
 
                     <!-- Load FLA (A) -->
-                    <div class="iec-input-field">
+                    <!-- <div class="iec-input-field">
                         <label>Load FLA (A)<span class="required">*</span></label>
                         <input type="number" step="any" id="ds-load-fla" placeholder="0">
-                    </div>
+                    </div> -->
 
                     <!-- CB FLA (A) -->
                     <div class="iec-input-field">
-                        <label>CB FLA (A)<span class="required">*</span></label>
+                        <label>Continuous (A)<span class="required">*</span></label>
                         <input type="number" step="any" id="ds-cb-fla" placeholder="0">
                     </div>
 
@@ -159,6 +159,36 @@
                     <div class="iec-input-field">
                         <label>Making Peak (kA)<span class="required">*</span></label>
                         <input type="number" step="any" id="ds-making-peak" placeholder="0">
+                    </div>
+
+                    <!-- Rated kV CB -->
+                    <div class="iec-input-field">
+                        <label>Rated kV CB</label>
+                        <input type="number" step="any" id="sim-rated-kv" placeholder="0">
+                    </div>
+
+                    <!-- ST. Withstand (kA) -->
+                    <div class="iec-input-field">
+                        <label>Ithr (kA)</label>
+                        <input type="number" step="any" id="sim-st-withstand" placeholder="0">
+                    </div>
+
+                    <!-- Tkr -->
+                    <div class="iec-input-field">
+                        <label>Tkr</label>
+                        <input type="number" step="any" id="sim-tkr" placeholder="0">
+                    </div>
+
+                    <!-- Breaktime -->
+                    <div class="iec-input-field">
+                        <label>Break time</label>
+                        <input type="number" step="any" id="sim-min-delay" placeholder="0">
+                    </div>
+
+                    <!-- T. Close -->
+                    <div class="iec-input-field full-width">
+                        <label>T. Close</label>
+                        <input type="number" step="any" id="sim-tclose" placeholder="0">
                     </div>
 
                 </div>
